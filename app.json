@@ -1,12 +1,38 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/article/index",
+		"pages/welfare/index",
+		"pages/account/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+    "navigationBarTitleText": "外推网",
+    "navigationBarTextStyle":"#3d464d",
+		"backgroundColor": "#f7f7f7"
+  },
+	"tabBar":{
+		"color": "#3d464d",
+		"selectedColor": "#ea6f5a",
+		"backgroundColor": "#fff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/article/index",
+				"text": "头条"
+			},
+			{
+				"pagePath": "pages/welfare/index",
+				"text": "发现"
+			},
+			{
+				"pagePath": "pages/account/index",
+				"text": "我的"
+			}
+		]
+	}
 }
