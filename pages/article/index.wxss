@@ -1,21 +1,31 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.container{
+    height: auto;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.article-list{
+    
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.article-list .weui-media-box__hd_in-appmsg{
+    width: 220rpx;
+    height: 160rpx;
+    line-height: 160rpx;
+    margin-left: .8em;
+    margin-right: 0;
 }
-
-.usermotto {
-  margin-top: 200px;
+.article-list .weui-media-box_appmsg .weui-media-box__thumb{
+    height: 100%;
+}
+.article-list .weui-media-box__title{
+    display: -webkit-box;
+    height: 120rpx;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 18px;
+    font-weight: 600;
+    color: #3d464d;
+    white-space: initial;
+    margin-bottom: 20rpx;
+}
+.weui-loadmore__tips_in-line{
+    background-color: transparent;
 }

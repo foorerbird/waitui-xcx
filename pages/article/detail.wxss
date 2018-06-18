@@ -1,0 +1,102 @@
+/**index.wxss**/
+@import "/wxParse/wxParse.wxss";
+
+.weui-article{
+    font-size: 18px;
+    line-height: 1.8;
+    background-color: #fff;
+    color: #3d464d;
+    padding-top: 0;
+}
+.weui-article .article-title{
+    padding: 10px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: .5em;
+}
+.article-author{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 48px;
+    margin-bottom: 20px;
+}
+.article-author-figure{
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.article-author-name{
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+.article-author-time{
+    font-size: 14px;
+    color: #999;
+}
+.article-summary{
+    position: relative;
+    font-size: 16px;
+    color: #666;
+    padding: 10px 10px 10px 36px;
+    background-color: #f7f7f7;
+    margin-bottom: 20px;
+}
+.article-summary:before{
+    position: absolute;
+    content: "“";
+    font-size: 32px;
+    height: 36px;
+    top: 5px;
+    left: 10px;
+}
+.weui-article .weui-article__section .wxParse{
+    font-size: 18px;
+    font-family: -apple-system-font,PingFang SC,Lantinghei SC,Helvetica Neue,Helvetica,Arial,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,STHeitiSC-Light,simsun,\\5B8B\4F53,WenQuanYi Zen Hei,WenQuanYi Micro Hei,"sans-serif";
+    line-height: 1.8;
+    color: #3d464d;
+    margin: 0;
+}
+.weui-article .weui-article__section .wxParse-p{
+    margin: 0 0 1em;
+}
+.weui-article .weui-article__section .wxParse-a{
+    color: #3d464d;
+    border-style: solid;
+    border-width: 0 0 1px;
+    border-color: #999;
+    padding: 0 0 1px;
+    word-break: break-word;
+}
+.weui-article .weui-article__section .wxParse-img{
+    max-width: 100%;
+}
+.wxParse-h1, .wxParse-h2, .wxParse-h3, .wxParse-h4, .wxParse-h5, .wxParse-h6, .wxParse-b, .wxParse-strong {
+    font-weight:bolder;
+    margin: 0;
+}
+.wxParse-ul,.wxParse-li,.wxParse-li-inner{
+    margin: 0;
+}
+
+.weui-article .weui-article__section .wxParse-h2{
+    font-size: 20px;
+}
+.weui-article .weui-article__section .wxParse-h3{
+    font-size: 18px;
+}
+.weui-article .weui-article__section .wxParse-li-text{
+    line-height: 1.8;
+}
+.weui-article .weui-article__section .wxParse-li-circle{
+    border-radius: 50%;
+    display: none;
+}
+

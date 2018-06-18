@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+
+<view class="container">
+    <view class="weui-article">
+        <view class="article-title">{{news_title}}</view>
+        <view class="article-author">
+            <image class="article-author-figure" src="{{figure_path}}" />
+            <text class="article-author-name">{{author_name}}</text>
+            <text class="article-author-time">{{create_time}}</text>
+        </view>
+        <view class="article-summary">{{news_lead}}</view>
+        <view class="weui-article__section">
+            <view class="wxParse">
+                <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+            </view>
+        </view>
+    </view>
+</view>
