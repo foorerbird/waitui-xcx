@@ -1,13 +1,12 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <swiper vertical="true" class="swiper-container">
+    <block wx:if="{{ad_list.length > 0}}">
+        <block wx:for="{{ad_list}}" wx:for-index="index" wx:for-item="advertisement">
+            <swiper-item>
+                <image class="banner" src="{{advertisement.ad_address}}"/>
+            </swiper-item>
+        </block>
     </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+    </swiper>
 </view>
