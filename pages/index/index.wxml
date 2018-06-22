@@ -2,10 +2,21 @@
 <view class="container">
     <swiper vertical="true" class="swiper-container">
     <block wx:if="{{ad_list.length > 0}}">
-        <block wx:for="{{ad_list}}" wx:for-index="index" wx:for-item="advertisement">
-            <swiper-item>
-                <image class="banner" src="{{advertisement.ad_address}}"/>
-            </swiper-item>
+        <block wx:for="{{ad_list}}" wx:key="index" wx:for-index="index" wx:for-item="advertisement">
+			<block wx:if="{{advertisement.ad_type == 'image'}}">
+				<swiper-item>
+					<view class="swiper-slide">
+						<image class="banner" src="{{advertisement.ad_address}}"/>
+					</view>
+				</swiper-item>
+			</block>
+			<block wx:else>
+				<swiper-item>
+					<view class="swiper-slide">
+						<video class="banner" src="{{advertisement.ad_address}}" poster="{{advertisement.video_poster}}" controls muted="true" objectFit="cover" ></video>
+					</view>
+				</swiper-item>
+			</block>
         </block>
     </block>
     </swiper>
