@@ -4,6 +4,7 @@
     "pages/article/index",
     "pages/article/detail",
     "pages/welfare/index",
+    "pages/welfare/entry",
     "pages/account/index"
   ],
   "window":{

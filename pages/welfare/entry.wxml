@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+    
+    <view class="welfare-list">
+    <block wx:if="{{welfare_list.length > 0}}">
+        <block wx:for="{{welfare_list}}" wx:for-index="index" wx:for-item="welfare">
+            <view class="welfare-item">
+                <image class="banner" src="{{welfare.welfare_banner}}" />
+                <view class="welfare-item-bottom">
+                    <view class="welfare-item-title">{{welfare.welfare_title}}</view>
+                    <view class="welfare-item-time">{{welfare.create_time}}</view>
+                </view>
+            </view>
+        </block>
+    </block>
+    </view>
+    
+    <view class="weui-loadmore weui-loadmore_line">
+        <text class="weui-loadmore__tips">喂喂，你触碰到我的底线了</text>
+    </view>
+</view>

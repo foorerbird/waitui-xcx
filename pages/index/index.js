@@ -18,11 +18,36 @@ Page({
         limit: limit
       },
       success: function(res) {
-        console.log(res.data.ad_list)
+        var res_ad_list = res.data.ad_list;
+        for (var i=0; i<res_ad_list.length; i++) {
+          res_ad_list[i].play = false;
+        }
         that.setData({
-          ad_list: that.data.ad_list.concat(res.data.ad_list)
+          ad_list: that.data.ad_list.concat(res_ad_list)
         });
       }
     })
+  },
+  slideNext: function(event){
+    var that = this;
+    that.getAdvertiseList(1);
+  },
+  videoPlay: function(event){
+    var that = this;
+    var index = event.target.dataset.index;
+    var order = event.target.dataset.order;
+    that.videoContext = wx.createVideoContext('video_'+order);
+    if(that.data.ad_list[index].play){
+        that.setData({
+          ['ad_list['+index+'].play']: false
+        });
+        that.videoContext.pause();
+    }else{
+        that.setData({
+          ['ad_list['+index+'].play']: true
+        });
+        that.videoContext.play();
+    }
+    
   }
 })

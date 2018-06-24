@@ -1,13 +1,82 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <swiper class="swiper-container swiper-banner" indicator-dots="true" indicator-color="rgba(255,255,255,.2)" indicator-active-color="rgba(255,255,255,1)" autoplay="true" interval="8000" circular="true">
+        <swiper-item>
+            <view class="swiper-slide">
+                <image class="banner" src="https://waituidev-1256656797.cos.ap-beijing.myqcloud.com/welfare/welfare_banner_1.jpg"/>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view class="swiper-slide">
+                <image class="banner" src="https://waituidev-1256656797.cos.ap-beijing.myqcloud.com/welfare/welfare_banner_2.jpg"/>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view class="swiper-slide">
+                <image class="banner" src="https://waituidev-1256656797.cos.ap-beijing.myqcloud.com/welfare/welfare_banner_3.jpg"/>
+            </view>
+        </swiper-item>
+    </swiper>
+    
+    <view class="welfare-announcement">
+        <swiper vertical="true" class="swiper-container" autoplay="true" interval="10000" circular="true">
+        <block wx:if="{{article_list.length > 0}}">
+            <block wx:for="{{article_list}}" wx:for-index="index" wx:for-item="article">
+                <block wx:if="{{index%2 == 0}}">
+                <swiper-item>
+                    <navigator url="/pages/article/index" open-type="switchTab" class="swiper-slide">
+                        <view class="title"><text class="tag">{{article_list[index].news_tag}}</text>{{article_list[index].news_title}}</view>
+                        <view class="title"><text class="tag">{{article_list[index+1].news_tag}}</text>{{article_list[index+1].news_title}}</view>
+                    </navigator>
+                </swiper-item>
+                </block>
+            </block>
+        </block>
+        </swiper>
+    </view>
+    
+    <view class="welfare-subject">
+        <view class="welfare-subject-grids">
+            <navigator url="/pages/welfare/entry" class="item"><view class="first"><view class="user"></view>新户专区</view></navigator>
+            <navigator url="/pages/welfare/entry" class="item mid"><view><view class="fire"></view>热门活动<view class="hot"></view></view></navigator>
+            <navigator url="/pages/welfare/entry" class="item"><view class="last"><view class="crown"></view>羊毛地带</view></navigator>
+        </view>
+        <view class="welfare-subject-topic">
+            <navigator url="/pages/welfare/entry" class="brand">
+                <view class="title">品牌保护</view>
+                <view class="h2">中国品牌的网络警卫</view>
+                <view class="h3">让品牌微笑</view>
+            </navigator>
+            <view class="brand-flex">
+                <navigator url="/pages/welfare/entry" class="domain">
+                    <view class="title">域名服务</view>
+                    <view class="h2">让网站更好记</view>
+                    <view class="h3">品牌大数据，全网监控</view>
+                </navigator>
+                <navigator url="/pages/welfare/entry" class="mark">
+                    <view class="title">商标服务</view>
+                    <view class="h2">好产品的出路</view>
+                    <view class="h3">一站式商标解决方案</view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    
+    <view class="welfare-list">
+    <block wx:if="{{welfare_list.length > 0}}">
+        <block wx:for="{{welfare_list}}" wx:for-index="index" wx:for-item="welfare">
+            <view class="welfare-item">
+                <image class="banner" src="{{welfare.welfare_banner}}" />
+                <view class="welfare-item-bottom">
+                    <view class="welfare-item-title">{{welfare.welfare_title}}</view>
+                    <view class="welfare-item-time">{{welfare.create_time}}</view>
+                </view>
+            </view>
+        </block>
     </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+    </view>
+    
+    <view class="weui-loadmore weui-loadmore_line">
+        <text class="weui-loadmore__tips">喂喂，你触碰到我的底线了</text>
+    </view>
 </view>

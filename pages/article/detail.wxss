@@ -1,4 +1,4 @@
-/**index.wxss**/
+/**detail.wxss**/
 @import "/wxParse/wxParse.wxss";
 
 .weui-article{

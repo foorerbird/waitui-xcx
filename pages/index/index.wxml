@@ -1,22 +1,35 @@
 <!--index.wxml-->
 <view class="container">
-    <swiper vertical="true" class="swiper-container">
+    <swiper vertical="true" class="swiper-container" bindanimationfinish="slideNext">
     <block wx:if="{{ad_list.length > 0}}">
-        <block wx:for="{{ad_list}}" wx:key="index" wx:for-index="index" wx:for-item="advertisement">
-			<block wx:if="{{advertisement.ad_type == 'image'}}">
-				<swiper-item>
-					<view class="swiper-slide">
-						<image class="banner" src="{{advertisement.ad_address}}"/>
-					</view>
-				</swiper-item>
-			</block>
-			<block wx:else>
-				<swiper-item>
-					<view class="swiper-slide">
-						<video class="banner" src="{{advertisement.ad_address}}" poster="{{advertisement.video_poster}}" controls muted="true" objectFit="cover" ></video>
-					</view>
-				</swiper-item>
-			</block>
+        <block wx:for="{{ad_list}}" wx:for-index="index" wx:for-item="advertisement">
+		<swiper-item>
+			<view class="swiper-slide">
+			    <block wx:if="{{advertisement.ad_type == 'image'}}">
+                    <image class="banner" src="{{advertisement.ad_address}}"/>
+                </block>
+                <block wx:else>
+                    <video id="video_{{advertisement.ad_id}}" class="banner" src="{{advertisement.ad_address}}" poster="{{advertisement.video_poster}}" controls muted="true" objectFit="cover" ></video>
+                </block>
+                <view class="swiper-mask" data-index="{{index}}" data-order="{{advertisement.ad_id}}" bindtap="videoPlay">
+                    <view class="author-info" catchtap>
+                        <view class="ad">广告</view>
+                        <view class="name">@{{advertisement.author_name}}</view>
+                        <view class="desc">{{advertisement.ad_desc}}</view>
+                    </view>
+                    <view class="side-bar" catchtap>
+                        <view class="figure">
+                            <image src="{{advertisement.author_figure}}" class="ico-figure" />
+                        </view>
+                        <view class="heart">
+                            <view class="ico-heart"></view>
+                            <view>{{advertisement.heart_amount}}</view>
+                        </view>
+                    </view>
+                    <view data-index="{{index}}" data-order="{{advertisement.ad_id}}" catchtap="videoPlay" wx:if="{{advertisement.ad_type == 'video'}}" hidden="{{advertisement.play}}" class="video-play"></view>
+                </view>
+			</view>
+		</swiper-item>
         </block>
     </block>
     </swiper>
