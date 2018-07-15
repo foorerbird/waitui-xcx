@@ -4,10 +4,10 @@
         <view class="weui-panel__bd">
             <block wx:if="{{article_list.length > 0}}">
                 <block wx:for="{{article_list}}" wx:for-index="index" wx:for-item="article">
-                    <navigator url="/pages/article/detail?news_id={{article.news_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <navigator url="/pages/article/detail?article_id={{article.article_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
                         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                            <view class="weui-media-box__title">{{article.news_title}}</view>
-                            <view class="weui-media-box__desc">{{article.news_tag}}&nbsp;&nbsp;{{article.create_time}}</view>
+                            <view class="weui-media-box__title">{{article.article_title}}</view>
+                            <view class="weui-media-box__desc">{{article.article_tag}}&nbsp;&nbsp;{{article.create_time}}</view>
                         </view>
                         <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
                             <image class="weui-media-box__thumb" src="{{article.thumb_path}}" />
